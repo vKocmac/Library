@@ -24,6 +24,7 @@ openFormButton.addEventListener("click", () => {
     header.style.filter = "blur(0)";
     footer.style.filter = "blur(0)";
     openFormButton.style.filter = "blur(0";
+    addBookForm.reset();
   })
 });
 
