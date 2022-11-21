@@ -16,6 +16,7 @@ openFormButton.addEventListener("click", () => {
   header.style.filter = "blur(2px)";
   footer.style.filter = "blur(2px)";
   openFormButton.style.filter = "blur(2px)";
+  gridContainer.style.filter = "blur(2px)";
   addBookForm.className = "new-add-book";
 
 
@@ -23,7 +24,8 @@ openFormButton.addEventListener("click", () => {
     addBookForm.className = "add-book";
     header.style.filter = "blur(0)";
     footer.style.filter = "blur(0)";
-    openFormButton.style.filter = "blur(0";
+    openFormButton.style.filter = "blur(0)";
+    gridContainer.style.filter = "blur(0)";
     addBookForm.reset();
   })
 });
