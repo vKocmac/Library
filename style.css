@@ -150,3 +150,15 @@ footer {
   justify-content: center;
   align-content: center;
 }
+
+.card{
+  list-style: none;
+  width:minmax(100px, 1fr);
+  border:solid;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
