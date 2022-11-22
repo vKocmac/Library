@@ -45,7 +45,7 @@ form {
 .button-div {
   display: flex;
   justify-content: center;
-  height: 200px;
+  height: 100px;
 }
 form div{
   display: flex;
@@ -155,13 +155,29 @@ footer {
 
 .card{
   list-style: none;
-  width:minmax(100px, 1fr);
-  border:solid;
+  width:minmax(80px, 1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding:5px;;
+  background-color: #3F4E4F;
+  color:white;
+  min-height: 200px;
+  border-width: 5px 5px 2px 2px;
+  margin-left:5px;
+  border-radius: 20px;
+
 }
 
-.grid-container{
+
+.grid-container div{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap:30px;
+  margin:0 20px;
 
+}
 
+li:nth-child(1){
+  font-size: 1.2rem;
 }
