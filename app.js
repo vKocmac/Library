@@ -1,4 +1,4 @@
-let myLibrary = [];
+let myLibrary = [{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34}];
 const body = document.querySelector("body");
 const main = document.querySelector("main");
 let gridContainer = document.createElement("div");
@@ -36,6 +36,7 @@ openFormButton.addEventListener("click", (e) => {
       openFormButton.style.filter = "blur(0)";
       gridContainer.style.filter = "blur(0)";
       addBookForm.reset(); //empty the form
+
     })
   }
 
@@ -64,6 +65,7 @@ if (addButton) {
   })
 }
 
+
 function addBookToLibrary() {
 
   const newBook = new Book(name.value, author.value, Number(pages.value));
@@ -82,20 +84,60 @@ function createBookCard() {
     let listAuthor = document.createElement("li");
     let listPages = document.createElement("li");
 
+    let deleteImg = document.createElement("img");
+    deleteImg.src = "images/delete-24.ico"
+    deleteImg.className = "img";
+
+    let toggleDiv = document.createElement("div");
+    toggleDiv.className = "toggle-div"
+    let toggleLabel = document.createElement("label");
+    toggleLabel.className = "switch";
+    let toggleInput = document.createElement("input");
+    toggleInput.type = "checkbox";
+    let toggleSpan = document.createElement("span");
+    toggleSpan.className = "slider round";
+    let togglePara = document.createElement("p");
+    togglePara.innerHTML = "Mark as read"
+
 
     list.className = "card";
     gridContainer.className = "grid-container";
     console.log(item.name)
-    listName.innerHTML = `Book title: ${item.name}`;
+    listName.innerHTML = `"Book title: ${item.name}"`;
     listAuthor.innerHTML = `Author: ${item.author}`;
     listPages.innerHTML = `${item.pages} pages`;
+
+
 
     list.appendChild(listName);
     list.appendChild(listAuthor);
     list.appendChild(listPages);
+
+    toggleDiv.appendChild(togglePara);
+    toggleDiv.appendChild(toggleLabel);
+    toggleLabel.appendChild(toggleInput);
+    toggleLabel.appendChild(toggleSpan);
+
+    toggleDiv.appendChild(deleteImg);
+    listPages.className = "listPages";
+
+
     card.appendChild(list);
+    list.appendChild(toggleDiv);
+
     gridContainer.appendChild(card);
     main.appendChild(gridContainer);
+
+
+    if(toggleDiv.contains(deleteImg)){
+
+      deleteImg.addEventListener("click",(e)=>{
+      card.removeChild(list);
+      delete myLibrary[i];
+      e.stopPropagation();
+      })
+    }
+
   });
 }
 
