@@ -1,7 +1,5 @@
 # Library
 
 todo
-footer always at the bottom and after many cards
-sign in
 site explanation box
-read status
+read status new property in object see odin last para

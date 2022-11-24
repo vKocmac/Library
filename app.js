@@ -1,4 +1,4 @@
-let myLibrary = [{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34},{name:"s", author:"s",pages:34}];
+let myLibrary = [];
 const body = document.querySelector("body");
 const main = document.querySelector("main");
 let gridContainer = document.createElement("div");
@@ -6,12 +6,11 @@ let card = document.createElement("div");
 let formDiv = document.querySelector(".form-div");
 
 
-
-
-function Book(name, author, pages) {
+function Book(name, author, pages,read = "not yet") {
   this.name = name;
   this.author = author;
   this.pages = pages;
+  this.read = read;
 }
 
 const openFormButton = document.querySelector(".open-form-button")
@@ -29,7 +28,6 @@ openFormButton.addEventListener("click", (e) => {
 
   if (addBookForm) {
     body.addEventListener("click", () => {
-      console.log("iam in");
       addBookForm.className = "add-book";
       header.style.filter = "blur(0)";
       footer.style.filter = "blur(0)";
@@ -57,7 +55,6 @@ const pages = document.querySelector("#pages");
 if (addButton) {
   addButton.addEventListener("click", (e) => { //prevent from empty submit
     if (name.value === '' || name.value === null || author.value === '' || author.value === null || pages.value === '' || pages.value === null ) {
-      console.log('where is the name');
       e.preventDefault();
     } else {
       addBookToLibrary();
@@ -76,6 +73,7 @@ function addBookToLibrary() {
 }
 
 function createBookCard() {
+
   card.innerHTML = ""; // for multiple card for each object in an array i have to empty first the card
   myLibrary.forEach((item, i) => {
 
@@ -102,12 +100,34 @@ function createBookCard() {
 
     list.className = "card";
     gridContainer.className = "grid-container";
-    console.log(item.name)
-    listName.innerHTML = `"Book title: ${item.name}"`;
+    listName.innerHTML = `Book title: "${item.name}"`;
     listAuthor.innerHTML = `Author: ${item.author}`;
     listPages.innerHTML = `${item.pages} pages`;
 
 
+    toggleInput.addEventListener("click", (e)=>{
+
+      if(toggleInput.checked === true){
+        item.read = "yes";
+        console.log(item);
+        list.style = "background:white";
+        listName.style = "color: black";
+        listAuthor.style = "color: black";
+        listPages.style = "color: black";
+        togglePara.style = "color: black";
+
+      }else{
+        item.read = "not yet";
+        console.log(item);
+        list.style = "background:#3F4E4F";
+        list.style = "color: white";
+        listName.style = "color: white";
+        listAuthor.style = "color: white";
+        listPages.style = "color: white";
+        togglePara.style = "color: white";
+
+      }
+    })
 
     list.appendChild(listName);
     list.appendChild(listAuthor);
