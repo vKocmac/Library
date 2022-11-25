@@ -3,9 +3,11 @@
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
-html{
+
+html {
   height: 100%;
 }
+
 body {
   background-color: #E7F6F2;
   min-height: 100%;
@@ -27,60 +29,58 @@ h3, h4 {
   align-self: center;
 }
 
-main {
-
-}
+main {}
 
 form {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width:20%;
+  width: 20%;
   min-width: 300px;
-  height:40vh;
+  height: 40vh;
   justify-content: space-around;
   border-style: solid;
   padding: 0.8rem;
   background-color: #3F4E4F;
   border-radius: 10px;
   border-color: #395B64;
-
 }
-
 
 .button-div {
   display: flex;
   justify-content: center;
   height: 100px;
 }
-form div{
+
+form div {
   display: flex;
   justify-content: space-between;
   align-content: flex-start;
 }
+
 .add-book {
   display: none;
 }
 
 .new-add-book {
-position: absolute;
-z-index: 1;
+  position: absolute;
+  z-index: 1;
 }
 
-.form-div{
+.form-div {
   display: flex;
   justify-content: center;
 }
 
 .new-button-div {
   display: none;
-
 }
 
-.add-button-div{
-  align-self:center;
+.add-button-div {
+  align-self: center;
 }
-.open-form-button,.add-button {
+
+.open-form-button, .add-button {
   align-items: center;
   appearance: none;
   background-color: #FCFCFD;
@@ -113,11 +113,11 @@ z-index: 1;
   align-self: center;
 }
 
-.open-form-button:focus,.add-button:focus {
+.open-form-button:focus, .add-button:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
-.open-form-button:hover,.add-button:hover {
+.open-form-button:hover, .add-button:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
@@ -126,26 +126,29 @@ z-index: 1;
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
-.add-button{
+
+.add-button {
   font-weight: bold;
 }
+
 .new-open-form-button {
   display: none;
-
 }
-div input{
+
+div input {
   border-radius: 5px;
   border-style: hidden;
   background-color: #E7F6F2;
-  border-style:hidden;
+  border-style: hidden;
   height: 1.5rem;
 }
-label{
-  color:white;
+
+label {
+  color: white;
   font-weight: bold;
   align-self: center;
-
 }
+
 footer {
   background-color: #2C3333;
   color: white;
@@ -160,67 +163,64 @@ footer {
   margin-top: 20px;
 }
 
-.info{
-  color:#2C3333;
+.info {
+  color: #2C3333;
   border: solid 2px #2C3333;
-  width:50%;
+  width: 50%;
   text-align: center;
-  margin:0 auto;
+  margin: 0 auto;
   padding: 20px;
   background-color: white;
   font-size: 1.2rem;
-
 }
 
-.card{
+.card {
   list-style: none;
-  width:minmax(80px, 1fr);
+  width: minmax(80px, 1fr);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding:5px;;
+  padding: 5px;
+  ;
   padding-left: 10px;
   background-color: #3F4E4F;
-  color:white;
+  color: white;
   min-height: 200px;
   border-width: 5px 5px 5px 5px;
-  margin-left:5px;
+  margin-left: 5px;
   border-radius: 20px;
-  border-color:#3F4E4F;
+  border-color: #3F4E4F;
   border: solid 2px #fff;
   outline: solid 2px #3F4E4F;
-
 }
 
-.grid-container div{
+.grid-container div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap:30px;
-  margin:0 20px;
-
+  gap: 30px;
+  margin: 0 20px;
 }
 
-li:nth-child(1){
+li:nth-child(1) {
   font-size: 1.2rem;
 }
 
-img{
+img {
   width: 24px;
   align-self: center;
   margin-left: 1.5rem;
 }
 
-.listPages{
+.listPages {
   display: flex;
   justify-content: space-between;
-  padding-right:20px;
+  padding-right: 20px;
 }
 
-ul .toggle-div{
+ul .toggle-div {
   display: flex;
   /* justify-content: space-between; */
   font-size: 0.8rem;
-
 }
 
 .switch {
@@ -260,15 +260,15 @@ ul .toggle-div{
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #2196F3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(13px);
   -ms-transform: translateX(13px);
   transform: translateX(13px);

@@ -6,12 +6,11 @@ let card = document.createElement("div");
 let formDiv = document.querySelector(".form-div");
 let info = document.querySelector(".info");
 
-function Book(name, author, pages,read = "not yet") {
+function Book(name, author, pages, read = "not yet") {
   this.name = name;
   this.author = author;
   this.pages = pages;
   this.read = read;
-
 }
 
 const openFormButton = document.querySelector(".open-form-button")
@@ -46,7 +45,6 @@ openFormButton.addEventListener("click", (e) => {
     openFormButton.style.filter = "blur(0)";
     gridContainer.style.filter = "blur(0)";
     addBookForm.reset(); //empty the form
-
   })
 });
 
@@ -56,7 +54,7 @@ const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
 if (addButton) {
   addButton.addEventListener("click", (e) => { //prevents from empty submit
-    if (name.value === '' || name.value === null || author.value === '' || author.value === null || pages.value === '' || pages.value === null ) {
+    if (name.value === '' || name.value === null || author.value === '' || author.value === null || pages.value === '' || pages.value === null) {
       e.preventDefault();
     } else {
       addBookToLibrary();
@@ -65,17 +63,13 @@ if (addButton) {
 }
 
 function addBookToLibrary() {
-
   const newBook = new Book(name.value, author.value, Number(pages.value));
-
   myLibrary.push(newBook);
   console.log(myLibrary)
-
   createBookCard();
 }
 
 function createBookCard() {
-
   card.innerHTML = ""; // for multiple card for each object in an array i have to empty first the card
   myLibrary.forEach((item, i) => {
 
@@ -83,11 +77,10 @@ function createBookCard() {
     let listName = document.createElement("li");
     let listAuthor = document.createElement("li");
     let listPages = document.createElement("li");
-
     let deleteImg = document.createElement("img");
+
     deleteImg.src = "images/delete-24.ico"
     deleteImg.className = "img";
-
 
     const toggleDiv = document.createElement("div");
     toggleDiv.className = "toggle-div"
@@ -97,15 +90,16 @@ function createBookCard() {
     toggleInput.type = "checkbox";
     console.log(item.read)
 
-    toggleInput.checked=false;
+    toggleInput.checked = false;
     const toggleSpan = document.createElement("span");
     toggleSpan.className = "slider round";
     const togglePara = document.createElement("p");
     togglePara.innerHTML = "Mark as read"
-    if(item.read === "not yet"){
-      toggleInput.checked=false;
-    }if(item.read === "yes"){
-      toggleInput.checked=true;
+    if (item.read === "not yet") {
+      toggleInput.checked = false;
+    }
+    if (item.read === "yes") {
+      toggleInput.checked = true;
       list.style = "background:white; border:solid 2px #fff; outline: solid 2px #3F4E4F";
       listName.style = "font-weight: bold; color:#2C3333";
       listAuthor.style = "font-weight: bold; color:#2C3333";
@@ -121,12 +115,11 @@ function createBookCard() {
 
     listPages.className = "listPages";
 
-
-    toggleInput.addEventListener("click", (e)=>{
+    toggleInput.addEventListener("click", (e) => {
       console.log("clicked")
-      if(toggleInput.checked === true){
+      if (toggleInput.checked === true) {
         item.read = "yes";
-        toggleInput.checked=true;
+        toggleInput.checked = true;
         console.log(toggleInput.checked)
         console.log(item);
         list.style = "background:white; border:solid 2px #fff; outline: solid 2px #3F4E4F";
@@ -135,10 +128,9 @@ function createBookCard() {
         listPages.style = "font-weight: bold; color:#2C3333";
         togglePara.style = "font-weight: bold; color:#2C3333";
 
-
-      }else{
+      } else {
         item.read = "not yet";
-        toggleInput.checked=false;
+        toggleInput.checked = false;
         console.log(item);
         list.style = "background:#3F4E4F";
         list.style = "color: white";
@@ -146,39 +138,29 @@ function createBookCard() {
         listAuthor.style = "color: white";
         listPages.style = "color: white";
         togglePara.style = "color: white";
-
       }
     })
 
     list.appendChild(listName);
     list.appendChild(listAuthor);
     list.appendChild(listPages);
-
     toggleDiv.appendChild(togglePara);
     toggleDiv.appendChild(toggleLabel);
     toggleLabel.appendChild(toggleInput);
     toggleLabel.appendChild(toggleSpan);
-
     toggleDiv.appendChild(deleteImg);
-
-
-
     card.appendChild(list);
     list.appendChild(toggleDiv);
-
     gridContainer.appendChild(card);
     main.appendChild(gridContainer);
 
-
-    if(toggleDiv.contains(deleteImg)){
-
-      deleteImg.addEventListener("click",(e)=>{
-      card.removeChild(list);
-      delete myLibrary[i];
-      e.stopPropagation();
+    if (toggleDiv.contains(deleteImg)) {
+      deleteImg.addEventListener("click", (e) => {
+        card.removeChild(list);
+        delete myLibrary[i];
+        e.stopPropagation();
       })
     }
-
   });
 }
 
