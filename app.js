@@ -11,6 +11,7 @@ function Book(name, author, pages,read = "not yet") {
   this.author = author;
   this.pages = pages;
   this.read = read;
+
 }
 
 const openFormButton = document.querySelector(".open-form-button")
@@ -34,7 +35,6 @@ openFormButton.addEventListener("click", (e) => {
       openFormButton.style.filter = "blur(0)";
       gridContainer.style.filter = "blur(0)";
       addBookForm.reset(); //empty the form
-
     })
   }
 
@@ -53,7 +53,7 @@ const name = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
 if (addButton) {
-  addButton.addEventListener("click", (e) => { //prevent from empty submit
+  addButton.addEventListener("click", (e) => { //prevents from empty submit
     if (name.value === '' || name.value === null || author.value === '' || author.value === null || pages.value === '' || pages.value === null ) {
       e.preventDefault();
     } else {
@@ -62,10 +62,10 @@ if (addButton) {
   })
 }
 
-
 function addBookToLibrary() {
 
   const newBook = new Book(name.value, author.value, Number(pages.value));
+
   myLibrary.push(newBook);
   console.log(myLibrary)
 
@@ -86,17 +86,30 @@ function createBookCard() {
     deleteImg.src = "images/delete-24.ico"
     deleteImg.className = "img";
 
-    let toggleDiv = document.createElement("div");
-    toggleDiv.className = "toggle-div"
-    let toggleLabel = document.createElement("label");
-    toggleLabel.className = "switch";
-    let toggleInput = document.createElement("input");
-    toggleInput.type = "checkbox";
-    let toggleSpan = document.createElement("span");
-    toggleSpan.className = "slider round";
-    let togglePara = document.createElement("p");
-    togglePara.innerHTML = "Mark as read"
 
+    const toggleDiv = document.createElement("div");
+    toggleDiv.className = "toggle-div"
+    const toggleLabel = document.createElement("label");
+    toggleLabel.className = "switch";
+    const toggleInput = document.createElement("input");
+    toggleInput.type = "checkbox";
+    console.log(item.read)
+
+    toggleInput.checked=false;
+    const toggleSpan = document.createElement("span");
+    toggleSpan.className = "slider round";
+    const togglePara = document.createElement("p");
+    togglePara.innerHTML = "Mark as read"
+    if(item.read === "not yet"){
+      toggleInput.checked=false;
+    }if(item.read === "yes"){
+      toggleInput.checked=true;
+      list.style = "background:white";
+      listName.style = "color: black";
+      listAuthor.style = "color: black";
+      listPages.style = "color: black";
+      togglePara.style = "color: black";
+    }
 
     list.className = "card";
     gridContainer.className = "grid-container";
@@ -104,11 +117,15 @@ function createBookCard() {
     listAuthor.innerHTML = `Author: ${item.author}`;
     listPages.innerHTML = `${item.pages} pages`;
 
+    listPages.className = "listPages";
+
 
     toggleInput.addEventListener("click", (e)=>{
 
       if(toggleInput.checked === true){
         item.read = "yes";
+        toggleInput.checked=true;
+        console.log(toggleInput.checked)
         console.log(item);
         list.style = "background:white";
         listName.style = "color: black";
@@ -118,6 +135,7 @@ function createBookCard() {
 
       }else{
         item.read = "not yet";
+        toggleInput.checked=false;
         console.log(item);
         list.style = "background:#3F4E4F";
         list.style = "color: white";
@@ -139,7 +157,7 @@ function createBookCard() {
     toggleLabel.appendChild(toggleSpan);
 
     toggleDiv.appendChild(deleteImg);
-    listPages.className = "listPages";
+
 
 
     card.appendChild(list);
