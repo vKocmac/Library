@@ -4,7 +4,7 @@ const main = document.querySelector("main");
 let gridContainer = document.createElement("div");
 let card = document.createElement("div");
 let formDiv = document.querySelector(".form-div");
-
+let info = document.querySelector(".info");
 
 function Book(name, author, pages,read = "not yet") {
   this.name = name;
@@ -20,6 +20,7 @@ const header = document.querySelector("header");
 const footer = document.querySelector("footer");
 
 openFormButton.addEventListener("click", (e) => {
+  info.remove();
   header.style.filter = "blur(2px)";
   footer.style.filter = "blur(2px)";
   openFormButton.style.filter = "blur(2px)";
@@ -45,6 +46,7 @@ openFormButton.addEventListener("click", (e) => {
     openFormButton.style.filter = "blur(0)";
     gridContainer.style.filter = "blur(0)";
     addBookForm.reset(); //empty the form
+
   })
 });
 
