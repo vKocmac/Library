@@ -104,11 +104,11 @@ function createBookCard() {
       toggleInput.checked=false;
     }if(item.read === "yes"){
       toggleInput.checked=true;
-      list.style = "background:white";
-      listName.style = "color: black";
-      listAuthor.style = "color: black";
-      listPages.style = "color: black";
-      togglePara.style = "color: black";
+      list.style = "background:white; border:solid 2px #fff; outline: solid 2px #3F4E4F";
+      listName.style = "font-weight: bold; color:#2C3333";
+      listAuthor.style = "font-weight: bold; color:#2C3333";
+      listPages.style = "font-weight: bold; color:#2C3333";
+      togglePara.style = "font-weight: bold; color:#2C3333";
     }
 
     list.className = "card";
@@ -121,17 +121,18 @@ function createBookCard() {
 
 
     toggleInput.addEventListener("click", (e)=>{
-
+      console.log("clicked")
       if(toggleInput.checked === true){
         item.read = "yes";
         toggleInput.checked=true;
         console.log(toggleInput.checked)
         console.log(item);
-        list.style = "background:white";
-        listName.style = "color: black";
-        listAuthor.style = "color: black";
-        listPages.style = "color: black";
-        togglePara.style = "color: black";
+        list.style = "background:white; border:solid 2px #fff; outline: solid 2px #3F4E4F";
+        listName.style = "font-weight: bold; color:#2C3333";
+        listAuthor.style = "font-weight: bold; color:#2C3333";
+        listPages.style = "font-weight: bold; color:#2C3333";
+        togglePara.style = "font-weight: bold; color:#2C3333";
+
 
       }else{
         item.read = "not yet";
